@@ -1,0 +1,632 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const links = [
+  { label: "Google Scholar", href: "https://scholar.google.com/citations?user=j8gl45kAAAAJ&hl=en" },
+  { label: "ResearchGate", href: "https://www.researchgate.net/profile/Lauren_Aulet" },
+  { label: "Twitter", href: "http://twitter.com/LaurenAulet" },
+  { label: "Substack", href: "http://laurenaulet.substack.com" },
+];
+
+const researchThemes = [
+  "Concept development",
+  "Learning and representation",
+  "Computational modeling",
+  "Cognitive measurement",
+];
+
+const publicationHighlights = [
+  {
+    title: "Number words recruit numerosity-related cortex in 3- to 5-year-old children",
+    meta: "Aulet, Kersey, & Cantlon · Developmental Cognitive Neuroscience · 2026",
+  },
+  {
+    title: "Segmentation as a bottleneck in numerical cognition",
+    meta: "Aulet & Cantlon · Scientific Reports · 2025",
+  },
+  {
+    title: "Intersection of spatial and numerical cognition in the developing brain",
+    meta: "Aulet, Kaicher, & Cantlon · Cerebral Cortex · 2025",
+  },
+  {
+    title: "A theory of perceptual number encoding",
+    meta: "Lourenco & Aulet · Psychological Review · 2023",
+  },
+];
+---
+
+<BaseLayout>
+  <header id="top" class="site-header">
+    <a class="brand" href="#top">Lauren Aulet</a>
+    <nav aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#cv">CV</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Cognitive Science · Development · Representation</p>
+        <h1>Lauren S. Aulet</h1>
+        <p class="lede">
+          I study how minds learn to represent the world.
+        </p>
+        <p class="sublede">
+          I am a cognitive scientist studying learning, representation, and reasoning. My work combines
+          behavioral experiments, developmental cognitive neuroscience, and computational modeling to understand
+          how abstract concepts emerge across development and experience.
+        </p>
+        <div class="hero-actions" aria-label="Contact and profile links">
+          <a class="button primary" href="mailto:laulet@umass.edu">laulet@umass.edu</a>
+          <a class="button" href="http://www.auletlab.com">Aulet Lab</a>
+        </div>
+      </div>
+      <aside class="hero-note" aria-label="Current role">
+        <strong>UMass Amherst</strong>
+        <span>Department of Psychological and Brain Sciences</span>
+      </aside>
+    </section>
+
+    <section class="link-strip" aria-label="External links">
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    </section>
+
+    <section id="about" class="section about-grid">
+      <div>
+        <p class="section-kicker">About</p>
+        <h2>Learning, representation, and reasoning across development.</h2>
+      </div>
+      <div class="prose">
+        <p>
+          I am an Assistant Professor in the Department of Psychological and Brain Sciences at the
+          University of Massachusetts Amherst, where I direct the Cognitive and Neural Development
+          Laboratory. My research asks how humans develop abstract concepts, with a focus on number,
+          space, symbols, and reasoning.
+        </p>
+        <p>
+          A central theme of my work is measurement: how to design tasks that reveal cognitive
+          processes that are not directly observable. This includes studying young children, whose
+          knowledge often exceeds what they can verbally explain, and using computational models to
+          test hypotheses about how learning changes representation.
+        </p>
+        <p>
+          My current research extends these questions toward AI and human-AI tools, asking how cognitive
+          science can help evaluate learning, reasoning, explanation, and overreliance in emerging systems.
+        </p>
+      </div>
+    </section>
+
+    <section id="research" class="section research-section">
+      <div class="section-heading">
+        <p class="section-kicker">Research</p>
+        <h2>How can we infer hidden representations and reasoning processes from behavior?</h2>
+      </div>
+      <div class="theme-grid">
+        {researchThemes.map((theme) => (
+          <article>
+            <span></span>
+            <h3>{theme}</h3>
+          </article>
+        ))}
+      </div>
+      <p class="research-summary">
+        My research is organized around connected questions: how children build abstract concepts,
+        how learning changes representations, and how cognitive science can inform the study of
+        AI and human-AI tools. Across these domains, I use behavioral experiments, developmental
+        neuroimaging, and computational modeling to study learning outcomes that cannot be measured
+        by self-report alone.
+      </p>
+    </section>
+
+    <section id="publications" class="section split-section">
+      <div>
+        <p class="section-kicker">Publications</p>
+        <h2>Work on cognitive development, neural representation, numerical cognition, and learning.</h2>
+      </div>
+      <div class="list-panel">
+        {publicationHighlights.map((item) => (
+          <article>
+            <h3>{item.title}</h3>
+            <p>{item.meta}</p>
+          </article>
+        ))}
+        <a href="https://scholar.google.com/citations?user=j8gl45kAAAAJ&hl=en">View Google Scholar</a>
+      </div>
+    </section>
+
+    <section id="cv" class="section cv-band">
+      <div>
+        <p class="section-kicker">CV</p>
+      </div>
+      <a class="button primary" href="/files/Aulet_CV.pdf">View CV</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>Lauren Aulet</p>
+    <a href="mailto:laulet@umass.edu">laulet@umass.edu</a>
+  </footer>
+</BaseLayout>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    margin: 0;
+    color: #202020;
+    background: #fdfcf9;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  :global(a) {
+    color: inherit;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 18px clamp(20px, 5vw, 64px);
+    background: rgba(253, 252, 249, 0.94);
+    border-bottom: 1px solid rgba(32, 32, 32, 0.12);
+    backdrop-filter: blur(14px);
+  }
+
+  .brand {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.15rem;
+    text-decoration: none;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-size: 0.92rem;
+  }
+
+  nav a {
+    text-decoration: none;
+  }
+
+  .hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 0.98fr) minmax(280px, 0.55fr);
+    gap: clamp(34px, 6vw, 96px);
+    align-items: start;
+    min-height: 540px;
+    padding: clamp(46px, 8vw, 96px) clamp(20px, 5vw, 64px) clamp(38px, 6vw, 60px);
+    background: #fdfcf9;
+    border-bottom: 1px solid rgba(32, 32, 32, 0.12);
+  }
+
+  .hero-copy,
+  .hero-note {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-copy {
+    max-width: 780px;
+    align-self: center;
+  }
+
+  .eyebrow,
+  .section-kicker {
+    margin: 0 0 14px;
+    color: #6b4a1d;
+    font-size: 0.78rem;
+    font-weight: 750;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    margin-bottom: 18px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(3.6rem, 9vw, 8rem);
+    line-height: 0.9;
+    font-weight: 400;
+  }
+
+  h2 {
+    max-width: 760px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.1rem, 4.6vw, 4.7rem);
+    line-height: 1.02;
+    font-weight: 400;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .lede {
+    max-width: 670px;
+    color: #3e3d39;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.6rem, 2.8vw, 2.65rem);
+    line-height: 1.18;
+  }
+
+  .sublede {
+    max-width: 760px;
+    color: #34332f;
+    font-size: clamp(1.02rem, 1.35vw, 1.22rem);
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 46px;
+    padding: 12px 18px;
+    border: 1px solid rgba(32, 32, 32, 0.2);
+    border-radius: 3px;
+    color: #202020;
+    background: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .button.primary {
+    color: #ffffff;
+    background: #2f4b46;
+    border-color: #2f4b46;
+  }
+
+  .hero-note {
+    align-self: start;
+    justify-self: end;
+    width: min(100%, 330px);
+    padding: 24px 0 0;
+    border-top: 2px solid #2f4b46;
+    background: transparent;
+  }
+
+  .hero-note strong,
+  .hero-note span {
+    display: block;
+  }
+
+  .hero-note strong {
+    margin-bottom: 8px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.55rem;
+    font-weight: 400;
+  }
+
+  .hero-note span {
+    color: #4b4a45;
+    line-height: 1.5;
+  }
+
+  .link-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-bottom: 1px solid rgba(32, 32, 32, 0.12);
+    background: #ffffff;
+  }
+
+  .link-strip a {
+    padding: 22px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 750;
+    border-right: 1px solid rgba(32, 32, 32, 0.12);
+  }
+
+  .link-strip a:last-child {
+    border-right: 0;
+  }
+
+  .section {
+    padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 64px);
+    border-bottom: 1px solid rgba(32, 32, 32, 0.12);
+  }
+
+  .about-grid,
+  .split-section,
+  .cv-band {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.75fr);
+    gap: clamp(32px, 6vw, 86px);
+    align-items: start;
+  }
+
+  .prose {
+    color: #34332f;
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+
+  .section-heading {
+    margin-bottom: 34px;
+  }
+
+  .theme-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid rgba(32, 32, 32, 0.16);
+  }
+
+  .theme-grid article {
+    min-height: 118px;
+    padding: 22px 28px 22px 0;
+    border-bottom: 1px solid rgba(32, 32, 32, 0.16);
+    background: transparent;
+  }
+
+  .theme-grid span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    margin-bottom: 24px;
+    background: #2f4b46;
+  }
+
+  .theme-grid article:nth-child(2) span {
+    background: #8b4b37;
+  }
+
+  .theme-grid article:nth-child(3) span {
+    background: #9a7a2d;
+  }
+
+  .theme-grid article:nth-child(4) span {
+    background: #3d5266;
+  }
+
+  .research-summary {
+    max-width: 850px;
+    margin: 34px 0 0 auto;
+    color: #34332f;
+    font-size: 1.12rem;
+    line-height: 1.7;
+  }
+
+  .list-panel {
+    border-top: 2px solid #243f3e;
+  }
+
+  .list-panel article,
+  .list-panel a {
+    display: block;
+    margin: 0;
+    padding: 19px 0;
+    border-bottom: 1px solid rgba(32, 32, 32, 0.14);
+  }
+
+  .list-panel h3 {
+    margin-bottom: 7px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.18rem;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+
+  .list-panel p {
+    margin: 0;
+    color: #5e5c56;
+    font-size: 0.94rem;
+    line-height: 1.5;
+  }
+
+  .list-panel a {
+    color: #6b4a1d;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .cv-band {
+    align-items: center;
+    background: #2f4b46;
+    color: #ffffff;
+  }
+
+  .cv-band .section-kicker {
+    color: #e8c270;
+  }
+
+  .cv-band .button.primary {
+    justify-self: end;
+    color: #2f4b46;
+    background: #ffffff;
+    border-color: #ffffff;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 28px clamp(20px, 5vw, 64px);
+    color: #4b4a45;
+  }
+
+  footer p {
+    margin: 0;
+  }
+
+  footer a {
+    text-decoration: none;
+  }
+
+  @media (max-width: 860px) {
+    .site-header {
+      position: static;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .hero,
+    .about-grid,
+    .split-section,
+    .cv-band {
+      grid-template-columns: 1fr;
+    }
+
+    .hero {
+      min-height: auto;
+    }
+
+    .hero-note,
+    .cv-band .button.primary {
+      justify-self: start;
+    }
+
+    .link-strip,
+    .theme-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 560px) {
+    nav {
+      width: 100%;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    h1 {
+      font-size: 4.05rem;
+    }
+
+    .link-strip,
+    .theme-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .link-strip a {
+      border-right: 0;
+      border-bottom: 1px solid rgba(32, 32, 32, 0.12);
+    }
+
+    footer {
+      flex-direction: column;
+    }
+  }
+  /* Option A: airy editorial */
+  :global(body) {
+    color: #1f2522;
+    background: #fffdf8;
+  }
+
+  .site-header {
+    padding: 24px clamp(22px, 7vw, 92px);
+    background: rgba(255, 253, 248, 0.94);
+  }
+
+  .brand {
+    font-size: 1.3rem;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.44fr);
+    gap: clamp(42px, 8vw, 128px);
+    min-height: 620px;
+    padding: clamp(62px, 10vw, 132px) clamp(22px, 7vw, 92px) clamp(56px, 8vw, 92px);
+    background: #fffdf8;
+  }
+
+  .eyebrow,
+  .section-kicker {
+    color: #8b4b37;
+  }
+
+  h1 {
+    font-size: clamp(4.1rem, 10vw, 9.4rem);
+    line-height: 0.86;
+  }
+
+  h2 {
+    font-size: clamp(2.35rem, 4.7vw, 4.9rem);
+  }
+
+  .lede {
+    font-size: clamp(1.85rem, 3.2vw, 3.2rem);
+  }
+
+  .sublede {
+    max-width: 700px;
+  }
+
+  .button {
+    border-radius: 0;
+  }
+
+  .button.primary,
+  .cv-band {
+    background: #263f3b;
+  }
+
+  .button.primary {
+    border-color: #263f3b;
+  }
+
+  .hero-note {
+    border-top: 3px solid #263f3b;
+  }
+
+  .link-strip {
+    background: #fffaf0;
+  }
+
+  .section {
+    padding: clamp(78px, 11vw, 148px) clamp(22px, 7vw, 92px);
+  }
+
+  .list-panel a {
+    color: #8b4b37;
+  }
+
+  .cv-band .button.primary {
+    color: #263f3b;
+  }
+
+  @media (max-width: 560px) {
+    h1 {
+      font-size: 4rem;
+    }
+  }
+
+  @media (max-width: 860px) {
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .hero-note {
+      justify-self: start;
+    }
+  }
+</style>
